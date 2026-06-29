@@ -9,11 +9,11 @@ export interface Props {
 const { title, description = '農山漁村振興への貢献活動に係るインパクト証明書に関する企業等への伴走支援補助事業の公式サイトです。' } = Astro.props;
 
 const navLinks = [
-  { href: '/', label: 'トップ' },
-  { href: '/eligibility', label: '補助対象者' },
-  { href: '/application', label: '申請方法' },
-  { href: '/schedule', label: 'スケジュール' },
-  { href: '/contact', label: 'お問い合わせ' },
+  { href: '#overview', label: '事業概要' },
+  { href: '#eligibility', label: '補助対象者' },
+  { href: '#application', label: '申請方法' },
+  { href: '#schedule', label: 'スケジュール' },
+  { href: '#contact', label: 'お問い合わせ' },
 ];
 
 const currentPath = Astro.url.pathname;
