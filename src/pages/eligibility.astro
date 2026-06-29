@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const conditions = [
+  {
+    num: '１',
+    text: 'インパクト証明書の発行申請を行う者であること。',
+  },
+  {
+    num: '２',
+    text: '民間企業、財団法人、社団法人、協同組合、企業組合、特定非営利活動法人、学校法人その他の法人又は団体であること。',
+  },
+  {
+    num: '３',
+    text: 'インパクト証明書の一次審査を通過し、二次審査に向けてIMMに関する伴走支援を受ける意思があること。',
+  },
+  {
+    num: '４',
+    text: 'インパクト証明書発行申請時に、【様式１】「農山漁村振興への貢献活動に係るインパクト証明書」に関する企業等への伴走支援補助事業申請書及び伴走支援者から受領した見積書等を提出していること。',
+  },
+  {
+    num: '５',
+    text: '暴力団等に該当せず、その他補助の対象として適切でないと認められる者でないこと。',
+  },
+];
+---
+
+<Layout title="補助対象者">
+  <!-- Hero banner -->
+  <section class="bg-gradient-to-r from-[#1B5E3B] to-[#2d7a55] text-white py-14 px-4">
+    <div class="max-w-6xl mx-auto">
+      <nav class="text-sm text-green-300 mb-4">
+        <a href="/" class="hover:text-white transition-colors">トップ</a>
+        <span class="mx-2">/</span>
+        <span class="text-white">補助対象者</span>
+      </nav>
+      <h1 class="text-3xl md:text-4xl font-bold">補助対象者</h1>
+      <p class="mt-3 text-green-100">補助を受けるための要件と注意事項をご確認ください。</p>
+    </div>
+  </section>
+
+  <section class="py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+
+      <!-- Conditions -->
+      <div class="mb-12">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-1 h-8 bg-[#1B5E3B] rounded"></div>
+          <h2 class="text-2xl font-bold text-gray-800">補助対象者の条件</h2>
+        </div>
+        <p class="text-gray-600 mb-6 leading-relaxed">
+          以下の要件をすべて満たす者が補助対象者となります。
+        </p>
+
+        <div class="space-y-4">
+          {conditions.map((c) => (
+            <div class="flex gap-4 bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:border-[#1B5E3B] hover:shadow-md transition-all">
+              <div class="shrink-0 w-10 h-10 bg-[#1B5E3B] text-white rounded-full flex items-center justify-center font-bold text-sm">
+                ({c.num})
+              </div>
+              <p class="text-gray-700 leading-relaxed pt-1.5">{c.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Notice -->
+      <div class="bg-amber-50 border border-amber-300 rounded-lg p-6">
+        <div class="flex items-start gap-3 mb-4">
+          <div class="shrink-0 bg-amber-500 text-white text-xs font-bold px-2 py-1 rounded mt-0.5">注意事項</div>
+        </div>
+        <div class="space-y-3 text-gray-700 leading-relaxed">
+          <p>
+            インパクト証明書発行申請時に【様式１】及び見積書等を提出していない場合、原則として、一次審査の通過後に新たに本補助を希望することはできません。
+          </p>
+          <p>
+            【様式１】を提出した場合であっても、一次審査を通過しない場合又は本補助の対象として認められない場合は、対象とはなりません。
+          </p>
+        </div>
+      </div>
+
+      <!-- Key points summary -->
+      <div class="mt-10 bg-[#E8F4EC] rounded-lg p-6">
+        <h3 class="font-bold text-[#1B5E3B] mb-4 text-lg">申請にあたってのポイント</h3>
+        <ul class="space-y-2 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <span class="text-[#1B5E3B] font-bold shrink-0">▶</span>
+            インパクト証明書の発行申請と同時に、【様式１】及び見積書等を必ず提出してください。
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-[#1B5E3B] font-bold shrink-0">▶</span>
+            一次審査通過後でなければ、伴走支援補助の対象となりません。
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-[#1B5E3B] font-bold shrink-0">▶</span>
+            民間企業等の法人・団体が対象です。個人事業主については事務局にお問い合わせください。
+          </li>
+        </ul>
+      </div>
+
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a
+          href="/application"
+          class="bg-[#1B5E3B] text-white px-6 py-3 rounded font-bold hover:bg-[#154d30] transition-colors"
+        >
+          申請方法を確認する
+        </a>
+        <a
+          href="/contact"
+          class="border border-[#1B5E3B] text-[#1B5E3B] px-6 py-3 rounded font-bold hover:bg-[#E8F4EC] transition-colors"
+        >
+          お問い合わせ
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

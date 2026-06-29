@@ -1,0 +1,116 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = '農山漁村振興への貢献活動に係るインパクト証明書に関する企業等への伴走支援補助事業の公式サイトです。' } = Astro.props;
+
+const navLinks = [
+  { href: '/', label: 'トップ' },
+  { href: '/eligibility', label: '補助対象者' },
+  { href: '/application', label: '申請方法' },
+  { href: '/schedule', label: 'スケジュール' },
+  { href: '/contact', label: 'お問い合わせ' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title} | インパクト証明書 伴走支援補助事業</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: 'Noto Sans JP', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-800 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-[#1B5E3B] text-white shadow-lg sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto px-4 py-0">
+        <div class="flex items-center justify-between">
+          <a href="/" class="flex items-center gap-3 py-4 hover:opacity-90 transition-opacity">
+            <div class="flex flex-col">
+              <span class="text-xs text-[#C9A227] font-medium tracking-wide">農林水産省</span>
+              <span class="text-base font-bold leading-tight">インパクト証明書 伴走支援補助事業</span>
+            </div>
+          </a>
+          <nav class="hidden md:flex items-center gap-1">
+            {navLinks.map(link => (
+              <a
+                href={link.href}
+                class={`px-3 py-6 text-sm font-medium border-b-2 transition-colors hover:text-[#C9A227] hover:border-[#C9A227] ${
+                  (currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)))
+                    ? 'border-[#C9A227] text-[#C9A227]'
+                    : 'border-transparent text-white'
+                }`}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <!-- Mobile menu button placeholder -->
+          <button class="md:hidden text-white p-2" aria-label="メニュー">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+        <!-- Mobile nav -->
+        <nav class="md:hidden pb-3 border-t border-[#2d7a55] mt-0 pt-2 flex flex-wrap gap-1">
+          {navLinks.map(link => (
+            <a
+              href={link.href}
+              class={`px-3 py-1.5 text-sm rounded font-medium transition-colors ${
+                currentPath === link.href
+                  ? 'bg-[#C9A227] text-white'
+                  : 'text-white hover:bg-[#2d7a55]'
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1B5E3B] text-white mt-16">
+      <div class="max-w-6xl mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="text-center md:text-left">
+            <p class="text-sm font-medium">令和8年度 農山漁村振興交付金事業</p>
+            <p class="text-xs text-green-300 mt-1">農林水産省</p>
+          </div>
+          <nav class="flex flex-wrap justify-center gap-4 text-xs text-green-300">
+            {navLinks.map(link => (
+              <a href={link.href} class="hover:text-[#C9A227] transition-colors">{link.label}</a>
+            ))}
+          </nav>
+        </div>
+        <div class="border-t border-[#2d7a55] mt-6 pt-4 text-center text-xs text-green-400">
+          <p>農山漁村振興への貢献活動に係るインパクト証明書に関する企業等への伴走支援補助事業事務局（株式会社JTB内）</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
