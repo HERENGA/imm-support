@@ -16,21 +16,32 @@ import Layout from '../layouts/Layout.astro';
     <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 relative">
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <p class="text-[#C9A227] text-xs font-medium tracking-widest mb-3">農林水産省</p>
-          <p class="text-green-200 text-sm leading-relaxed mb-3">
-            令和8年度 農山漁村振興交付金 創出支援型<br />
-            地域資源活用・地域連携促進事業<br />
-            官民共創の仕組みを活用した地域課題解決支援
-          </p>
-          <h1 class="text-2xl md:text-3xl font-bold leading-snug mb-6">
-            「農山漁村振興への貢献活動に係る<br class="hidden md:block"/>インパクト証明書」に関する<br class="hidden md:block"/>企業等への伴走支援補助事業
+          <!-- 省庁バッジ -->
+          <div class="inline-flex items-center gap-2 bg-white/15 border border-white/30 rounded-full px-4 py-1.5 mb-5">
+            <span class="w-2 h-2 rounded-full bg-[#C9A227] shrink-0"></span>
+            <span class="text-white text-xs font-medium tracking-wider">農林水産省</span>
+          </div>
+          <!-- 交付金・事業名 -->
+          <div class="space-y-1.5 mb-5">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-xs text-green-100 bg-white/10 rounded px-2 py-0.5">令和8年度</span>
+              <span class="text-xs text-green-100 bg-white/10 rounded px-2 py-0.5">農山漁村振興交付金 創出支援型</span>
+            </div>
+            <p class="text-green-200 text-xs leading-relaxed">地域資源活用・地域連携促進事業</p>
+            <p class="text-green-300 text-xs leading-relaxed">官民共創の仕組みを活用した地域課題解決支援</p>
+          </div>
+          <!-- メインタイトル -->
+          <h1 class="text-xl md:text-2xl font-bold leading-relaxed mb-6">
+            <span class="block text-[#C9A227] text-base font-semibold mb-1">「農山漁村振興への貢献活動に係る</span>
+            <span class="block text-[#C9A227] text-base font-semibold mb-3">インパクト証明書」に関する</span>
+            <span class="block text-white text-2xl md:text-3xl font-bold">企業等への<br/>伴走支援補助事業</span>
           </h1>
           <div class="flex flex-col sm:flex-row gap-4">
-            <a href="#download" class="flex items-center justify-center gap-2 bg-red-600 text-white px-6 py-4 rounded-lg font-bold hover:bg-red-700 transition-colors shadow-lg text-sm text-center leading-snug">
+            <a href="#download" class="flex items-center justify-center gap-2 bg-white text-[#1B5E3B] px-6 py-4 rounded-lg font-bold hover:bg-green-50 transition-colors shadow-lg text-sm text-center leading-snug">
               <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
               公募要項・申請書類の<br/>ダウンロードはこちら
             </a>
-            <a href="#application" class="flex items-center justify-center gap-2 bg-red-600 text-white px-6 py-4 rounded-lg font-bold hover:bg-red-700 transition-colors shadow-lg text-sm">
+            <a href="#application" class="flex items-center justify-center gap-2 bg-[#C9A227] text-white px-6 py-4 rounded-lg font-bold hover:bg-[#b8911f] transition-colors shadow-lg text-sm">
               <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
               応募はこちら
             </a>
@@ -249,11 +260,11 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <!-- ダウンロード・応募ボタン -->
           <div id="download" class="space-y-3">
-            <a href="#" class="flex items-center justify-center gap-2 w-full bg-red-600 text-white py-4 rounded-lg font-bold hover:bg-red-700 transition-colors shadow text-sm text-center">
+            <a href="#" class="flex items-center justify-center gap-2 w-full bg-[#1B5E3B] text-white py-4 rounded-lg font-bold hover:bg-[#164d30] transition-colors shadow text-sm text-center">
               <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
               公募要項・申請書類のダウンロードはこちら
             </a>
-            <a href="#" class="flex items-center justify-center gap-2 w-full bg-red-600 text-white py-4 rounded-lg font-bold hover:bg-red-700 transition-colors shadow text-sm">
+            <a href="#" class="flex items-center justify-center gap-2 w-full bg-[#C9A227] text-white py-4 rounded-lg font-bold hover:bg-[#b8911f] transition-colors shadow text-sm">
               <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
               応募はこちら
             </a>
